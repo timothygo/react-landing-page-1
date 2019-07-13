@@ -1,0 +1,26 @@
+.slide-enter {
+  display: inline-block;
+  transform: translateX(10rem);
+  transition: transform 300ms;
+  &-active {
+    display: inline-block;
+    transform: translateX(0rem);
+  }
+  &-done {
+    display: inline-block;
+  }
+}
+
+.slide-exit {
+  display: inline-block;
+  transform: translateX(0rem);
+  transition: transform 300ms;
+  &-active {
+    display: inline-block;
+    transform: translateX(10rem);
+  }
+
+  &-done {
+    display: none;
+  }
+}

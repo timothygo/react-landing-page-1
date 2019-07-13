@@ -1,0 +1,244 @@
+@import "../../assets/stylesheets/breakpoints";
+@import "../../assets/stylesheets/variables";
+
+.section-about {
+  width: 100vw;
+  min-height: 90vh;
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-bottom: 5.5rem;
+  padding-top: 5.5rem;
+
+  @include breakpoint("medium") {
+    flex-direction: row;
+    padding-bottom: 0rem;
+    padding-top: 0rem;
+  }
+}
+
+.about-left {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding-bottom: 4rem;
+
+  &__header-container {
+    &__header {
+      font-size: 2.3rem;
+      font-weight: 600;
+
+      & > .header-span {
+        display: none;
+      }
+    }
+  }
+  &__body-container {
+    padding: 3rem 0rem 5rem 0rem;
+    width: 90%;
+    &__body {
+      text-align: center;
+    }
+  }
+  &__button-container {
+    &__button {
+      color: $secondary-color;
+      font-family: inherit;
+      font-size: 1.3rem;
+      font-weight: 600;
+
+      padding: 1rem 2rem;
+
+      background: none;
+      border: 0.19rem $secondary-color solid;
+
+      transition: transform 300ms;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0rem 0.1rem 0.5rem rgba(0, 0, 0, 0.267);
+
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  @include breakpoint("medium") {
+    &__header-container,
+    &__body-container,
+    &__button-container {
+      width: 100%;
+    }
+
+    &__header-container {
+      &__header {
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
+      &__header > .header-span {
+        display: inline-block;
+      }
+    }
+
+    &__body-container {
+      padding: 2.7rem 0rem 6rem 0rem;
+      &__body {
+        max-width: 85%;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.about-right {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__number-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    &__rocket {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__astronaut {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      margin: 2rem 0rem;
+    }
+    &__count {
+      display: block;
+      color: $primary-color;
+      font-size: 6.5rem;
+      font-weight: bold;
+    }
+    &__label {
+      display: block;
+      font-weight: 500;
+      width: 10rem;
+    }
+  }
+
+  &__ceo-container {
+    display: grid;
+    grid-template-areas:
+      "message message message"
+      ". photo ."
+      "name name name";
+    text-align: center;
+    margin-top: 1rem;
+    &__photo {
+      grid-area: photo;
+      display: inline-block;
+      width: 13rem;
+      height: 13rem;
+      position: relative;
+      margin: 1.3rem 0rem;
+
+      transform: scale(0.9);
+      & > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        clip-path: circle(35% at 50% 6.5rem);
+        margin: 0rem 0rem -3rem 0rem;
+      }
+    }
+    &__name-container {
+      grid-area: name;
+      &__name {
+        display: block;
+        font-size: 1.9rem;
+        font-weight: 600;
+      }
+      &__position {
+        display: block;
+        color: lighten($text--color, 30%);
+        font-size: 1.6rem;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+    }
+    &__message {
+      grid-area: message;
+      font-size: 1.5rem;
+    }
+  }
+
+  @include breakpoint("small") {
+    &__ceo-container {
+      grid-template-areas:
+        "message message message message"
+        ". photo name .";
+      align-items: center;
+    }
+    &__number-container {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  @include breakpoint("medium") {
+    &__number-container {
+      padding-right: 15%;
+    }
+    &__ceo-container {
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr;
+      text-align: left;
+      align-items: stretch;
+      /*margin-top: 1rem;*/
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.06);
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+      }
+      &__photo {
+        grid-row: 1/-1;
+        grid-column: 1/2;
+        margin: 0rem 0rem;
+
+        transform: scale(0.8);
+      }
+      &__name-container {
+        grid-row: 1/2;
+        grid-column: 2/-1;
+        padding-top: 1.5rem;
+        &__name {
+          font-size: 1.75rem;
+        }
+        &__position {
+          font-size: 1.55rem;
+        }
+      }
+      &__message {
+        grid-row: 2/-1;
+        grid-column: 2/-1;
+        padding-bottom: 1.5rem;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

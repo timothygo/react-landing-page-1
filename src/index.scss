@@ -1,0 +1,81 @@
+@import "./assets/stylesheets/breakpoints";
+@import "./assets/stylesheets/variables";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  scroll-behavior: smooth;
+}
+/* end of reset */
+
+/* typography */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap");
+body {
+  font-family: "Montserrat", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.6rem;
+  color: $text--color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* hide scroll bar */
+body {
+  /* chrome */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* mozilla */
+  overflow: -moz-scrollbars-none;
+
+  /* ie */
+  -ms-overflow-style: none;
+}
+
+.wrapper {
+  padding: 0rem 6%;
+
+  @include breakpoint("small") {
+    padding: 0rem 8%;
+  }
+
+  @include breakpoint("large") {
+    padding: 0rem 12%;
+  }
+}
+
+.wrapper-inner {
+  max-width: 100%;
+
+  @include breakpoint("medium") {
+    max-width: 90%;
+  }
+
+  @include breakpoint("large") {
+    max-width: 80%;
+  }
+}
+
+.header-span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 7.5rem;
+  height: 0.2rem;
+  background-color: $primary-color;
+
+  margin-right: 1.5rem;
+  margin-bottom: 0.115rem;
+}

@@ -1,0 +1,94 @@
+@import "../../assets/stylesheets/variables";
+@import "../../assets/stylesheets/breakpoints";
+
+.footer {
+  min-height: $footer-height;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: $text--color;
+  background-color: #fff;
+
+  border: 0rem;
+  border-top: 0.1rem;
+  border-color: $footer__divider--color;
+  border-style: solid;
+
+  &__logo {
+    flex: 1;
+    text-align: left;
+    padding-top: 1.7rem;
+
+    & > img {
+      width: 3.5rem;
+    }
+  }
+
+  &__copy {
+    flex: 1;
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.7rem;
+
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  &__created {
+    flex: 1;
+    text-align: right;
+    padding-bottom: 1.7rem;
+
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    & > a {
+      position: relative;
+      color: $primary-color;
+      font-weight: 700;
+      text-decoration: none;
+
+      transition: color 350ms;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.1rem;
+        background-color: $primary-color;
+
+        transform-origin: left;
+        transform: scaleX(0);
+
+        transition: transform 350ms;
+      }
+
+      &:hover {
+        &:before {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  @include breakpoint("small") {
+    flex-direction: row;
+
+    &__logo {
+      padding-top: 0rem;
+    }
+
+    &__copy {
+      padding-top: 0rem;
+      padding-bottom: 0rem;
+    }
+
+    &__created {
+      padding-bottom: 0rem;
+    }
+  }
+}
