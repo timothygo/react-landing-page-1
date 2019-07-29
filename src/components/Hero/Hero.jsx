@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import "./Hero.scss";
+import { isMobile } from "react-device-detect";
 
 import {
   useSpring,
@@ -10,6 +11,7 @@ import {
 } from "react-spring";
 
 const Hero = props => {
+  const [height, setHeight] = useState(0);
   const wordRef = useRef();
   const backgroundRef = useRef();
 
@@ -41,8 +43,28 @@ const Hero = props => {
 
   useChain([wordRef, curtainTransition.ref, backgroundRef], [0.5, 1.7, 1.9]);
 
+  const handleResize = useCallback(() => {
+    if (isMobile) {
+      setHeight(window.outerHeight);
+    } else {
+      setHeight(window.innerHeight);
+    }
+  }, []);
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <section id={props.id} className={`${props.className} hero`}>
+    <section
+      id={props.id}
+      className={`${props.className} hero`}
+      style={height > 0 ? { height: `${height}px` } : {}}
+    >
       <animated.span className="hero__background" style={backgroundProps} />
 
       {!curtainTransition.isFinished && curtainTransition.element}
