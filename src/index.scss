@@ -20,6 +20,11 @@ html {
 }
 /* end of reset */
 
+html,
+body {
+  height: 100%;
+}
+
 /* typography */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap");
 body {

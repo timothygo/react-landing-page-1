@@ -53,18 +53,14 @@ const Hero = props => {
 
   useEffect(() => {
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    //window.addEventListener("resize", handleResize);
+    //return () => {
+    //window.removeEventListener("resize", handleResize);
+    //};
   }, []);
 
   return (
-    <section
-      id={props.id}
-      className={`${props.className} hero`}
-      style={height > 0 ? { height: `${height}px` } : {}}
-    >
+    <section id={props.id} className={`${props.className} hero`}>
       <animated.span className="hero__background" style={backgroundProps} />
 
       {!curtainTransition.isFinished && curtainTransition.element}
