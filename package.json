@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "autoprefixer": "^9.6.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.10",
@@ -25,14 +26,10 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "since 2010"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "since 2010"
     ]
   }
 }
