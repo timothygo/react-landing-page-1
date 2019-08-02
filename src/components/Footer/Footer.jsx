@@ -12,7 +12,7 @@ const Footer = props => {
       <span className="footer__copy">&copy;2019 Space Expo</span>
       <span className="footer__created">
         Created by{" "}
-        <a href="#" target="_blank">
+        <a href="https://www.timothygo.me" target="_blank">
           Timothy Go
         </a>
       </span>
